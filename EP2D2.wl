@@ -1,10 +1,10 @@
 Clear["Global`*"]
 n1=ToExpression[$ScriptCommandLine[[2]]];
 n2=ToExpression[$ScriptCommandLine[[3]]];
-x3=ToExpression[$ScriptCommandLine[[5]]];
-x4=ToExpression[$ScriptCommandLine[[6]]];
-x5=ToExpression[$ScriptCommandLine[[7]]];
-figpath=$ScriptCommandLine[[8]];
+x3=ToExpression[$ScriptCommandLine[[4]]];
+x4=ToExpression[$ScriptCommandLine[[5]]];
+x5=ToExpression[$ScriptCommandLine[[6]]];
+figpath=$ScriptCommandLine[[7]];
 Print[$ScriptCommandLine];
 f2:=(x-1)^2/r^2+y^2/r^2;
 N2[{x_,y_},r_]:=Normalize[{2*(x-1)/r^2,2*y/r^2}];
@@ -44,7 +44,7 @@ If[flag==0,p=pt/.t->s;AppendTo[P,p];Break[];];
 If[flag==4,p=pt/.t->s;AppendTo[P,p];Num1++;Break[];];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
-If[picNum1<=50,pict=Show[ContourPlot[{circ==1,c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3+1,x3+1}],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
+If[picNum1<=50,pict=Show[ContourPlot[{circ==1,c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3,x3}],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
 ]]
 Print["Simulation L to R rate ",N[Num1/(n1*n2)]];
 
@@ -75,6 +75,6 @@ If[flag==0,p=pt/.t->s;AppendTo[P,p];Num2++;Break[];];
 If[flag==4,p=pt/.t->s;AppendTo[P,p];Break[];];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
-If[picNum2<=50,pict=Show[ContourPlot[{circ==1,c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3+1,x3+1}],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum2<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"R0"<>ToString[picNum2++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"R"<>ToString[picNum2++]<>".png",pict]]];
+If[picNum2<=50,pict=Show[ContourPlot[{circ==1,c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3,x3}],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum2<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"R0"<>ToString[picNum2++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"R"<>ToString[picNum2++]<>".png",pict]]];
 ]]
 Print["Simulation R to L rate ",N[Num2/(n1*n2)]]
