@@ -6,6 +6,8 @@ path3D="${pathpic}/3D"
 
 rm -f log.txt
 
+export LC_CTYPE="en_US.UTF-8"
+
 mkdir -p ${pathpic}
 mkdir -p ${path2D}
 mkdir -p ${path3D}
@@ -17,7 +19,7 @@ wolframscript -file EP3D0.wl ${scale} ${scale} 1.1 1.2 1 0.05 0.05 "${path3D}/EP
 #wolframscript -file EP2D0.wl ${scale} ${scale} 1.1 1.2 1 0.05 0.05 "${path2D}/EP2D02.png"
 #wolframscript -file EP3D0.wl ${scale} ${scale} 1.1 1.2 1 0.05 0.05 "${path3D}/EP3D02.png"
 
-wolframscript -file EP2D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path2D}/EP2D10.png"
+wolframscript -file EP2D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path2D}/EP2D10.png" >> log.txt
 #wolframscript -file EP3D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path3D}/EP3D10.png"
 #wolframscript -file EP2D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path2D}/EP2D11.png"
 #wolframscript -file EP3D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path3D}/EP3D11.png"

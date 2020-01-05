@@ -36,7 +36,7 @@ d=({-1,0}+#)&/@(x4*d0);
 Num1=0;
 picNum1=1;
 For[i=1,i<=n1,i++,
-theta=RandomVariate[ProbabilityDistribution[0.5*Cos[u],{u,-Pi/2,Pi/2}],n2];
+theta=RandomVariate[ProbabilityDistribution[0.5*Cos[v],{v,-Pi/2,Pi/2}],n2];
 For[j=1,j<=n2,j++,
 p=d[[i]];
 ro=R[[i]];
@@ -73,7 +73,7 @@ d=({1,0}+#)&/@(x5*d0);
 Num2=0;
 picNum2=1;
 For[i=1,i<=n1,i++,
-theta=RandomVariate[ProbabilityDistribution[0.5*Cos[u],{u,-Pi/2,Pi/2}],n2];
+theta=RandomVariate[ProbabilityDistribution[0.5*Cos[v],{v,-Pi/2,Pi/2}],n2];
 For[j=1,j<=n2,j++,
 p=d[[i]];
 ro=R[[i]];
