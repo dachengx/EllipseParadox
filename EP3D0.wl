@@ -65,6 +65,7 @@ If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN]
 If[picNum1<=50,pict=Show[ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
 ]]
 Print["Simulation L to R rate ",N[Num1/(n1*n2)]];
+
 d0=RandomVariate[MatrixPropertyDistribution[r.{0,0,1},r \[Distributed] CircularRealMatrixDistribution[3]],n1];
 R=(RotationMatrix[{{1,0,0},#}])&/@d0;
 d=({1,0,0}+#)&/@(x5*d0);

@@ -20,7 +20,7 @@ wolframscript -file EP3D0.wl ${scale} ${scale} 1.1 1.2 1 0.05 0.05 "${path3D}/EP
 #wolframscript -file EP3D0.wl ${scale} ${scale} 1.1 1.2 1 0.05 0.05 "${path3D}/EP3D02.png"
 
 wolframscript -file EP2D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path2D}/EP2D10.png" >> log.txt
-#wolframscript -file EP3D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path3D}/EP3D10.png"
+wolframscript -file EP3D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path3D}/EP3D10.png" >> log.txt
 #wolframscript -file EP2D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path2D}/EP2D11.png"
 #wolframscript -file EP3D1.wl ${scale} ${scale} 1.1 1 0.05 0.05 "${path3D}/EP3D11.png"
 
