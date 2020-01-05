@@ -18,7 +18,7 @@ circ=f2/.r->x3;
 c1=f3/.r->x4;
 c2=f2/.r->x5;
 u=Max[x1,x3+1];
-A1=NSolve[eli1==1&&circ==1&&x<1&&z==0,{x,y,z},Reals];
+A1=NSolve[eli1==1&&circ==1&&z==0,{x,y,z},Reals];
 xa=x/.A1[[1]];
 Print["Paradox L to R rate is ",1];
 Print["Paradox R to L rate is ",N[1-VectorAngle[({x,y}/.A1[[1]])-{1,0},{1,0}]/Pi]];

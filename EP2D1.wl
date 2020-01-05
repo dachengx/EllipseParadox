@@ -20,7 +20,7 @@ c2=f2/.r->x5;
 u=Max[x1,x3+1];
 rawfig=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,circ==1,c1==1,c2==1},{x,-u,u},{y,-u,u}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];
 Export[StringTake[figpath,StringLength[figpath]-4]<>"raw.png",rawfig];
-A1=NSolve[eli1==1&&circ==1&&x<1&&y>0,{x,y},Reals];
+A1=NSolve[eli1==1&&circ==1&&y>0,{x,y},Reals];
 xa=x/.A1[[1]];
 geofig=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-u,u}],ContourPlot[{circ==1},{x,xa,u},{y,-u,u}],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-u,u}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];
 Export[StringTake[figpath,StringLength[figpath]-4]<>"geo.png",geofig];
