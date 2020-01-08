@@ -24,7 +24,6 @@ A1=NSolve[eli1==1&&circ==1&&z==0,{x,y,z},Reals];
 xa=x/.A1[[1]];
 A2=NSolve[eli2==1&&circ==1&&z==0,{x,y,z},Reals];
 xb=x/.A2[[1]];
-Print["Paradox L to R rate is ",1];
 SeedRandom[0];
 d0=RandomVariate[MatrixPropertyDistribution[r.{0,0,1},r \[Distributed] CircularRealMatrixDistribution[3]],n1];
 R=(RotationMatrix[{{1,0,0},#}])&/@d0;

@@ -5,6 +5,7 @@ pathpic='pic'
 path2D="${pathpic}/2D"
 path3D="${pathpic}/3D"
 
+rm -rf ${pathpic}
 rm -f log.txt
 
 export LC_CTYPE="en_US.UTF-8"
