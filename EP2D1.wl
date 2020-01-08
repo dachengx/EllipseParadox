@@ -5,7 +5,7 @@ x1=ToExpression[$ScriptCommandLine[[4]]];
 x3=ToExpression[$ScriptCommandLine[[5]]];
 x4=ToExpression[$ScriptCommandLine[[6]]];
 x5=ToExpression[$ScriptCommandLine[[7]]];
-Sumpic=ToExpression[$ScriptCommandLine[[8]]];
+Sumpic=ToExpression[ToExpression[$ScriptCommandLine[[8]]]];
 figpath=$ScriptCommandLine[[9]];
 Print[$ScriptCommandLine];
 f1:=x^2/a^2+y^2/(a^2-1);

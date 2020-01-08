@@ -31,6 +31,7 @@ R=(RotationMatrix[{{1,0,0},#}])&/@d0;
 d=({-1,0,0}+#)&/@(x4*d0);
 Num1=0;
 picNum1=1;
+noo=0;
 For[i=1,i<=n1,i++,
 theta=RandomVariate[ProbabilityDistribution[0.5*Cos[v],{v,-Pi/2,Pi/2}],n2];
 phi=RandomReal[{0,2*Pi},n2];
@@ -63,6 +64,7 @@ If[flag==2,p=pt/.t->s;AppendTo[P,p];eN=N1[p,x2];dir=Normalize[dir-2*(dir.eN)*eN]
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
 If[picNum1<=Sumpic,pict=Show[ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
+If[flag==0,pict=Show[ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];Export[StringTake[figpath,StringLength[figpath]-4]<>"noo"<>ToString[noo++]<>".png",pict];];
 ]]
 Print["Simulation L to R rate ",Num1,"/",n1*n2,"=",N[Num1/(n1*n2)]];
 

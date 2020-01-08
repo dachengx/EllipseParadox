@@ -1,6 +1,6 @@
 #!/bin/bash
-scale=50
-Sumpic=50
+scale=20
+Sumpic=20
 pathpic='pic'
 path2D="${pathpic}/2D"
 path3D="${pathpic}/3D"
@@ -13,34 +13,35 @@ mkdir -p ${pathpic}
 mkdir -p ${path2D}
 mkdir -p ${path3D}
 
-wolframscript -file EP2D0.wl ${scale} ${scale} 1.1 1.2 1 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D00.png" >> log.txt
+wolframscript -file demo.wl
+wolframscript -file EP2D0.wl ${scale} ${scale} 1.4 1.6 1.2 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D00.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D00.png"
-wolframscript -file EP3D0.wl 4*${scale} 4*${scale} 1.1 1.2 1 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D00.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D00.png"
-wolframscript -file EP2D0.wl ${scale} ${scale} 1.1 1.2 0.5 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D01.png" >> log.txt
+wolframscript -file EP3D0.wl ${scale} ${scale} 1.4 1.6 1.2 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D00.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D00.png"
+wolframscript -file EP2D0.wl ${scale} ${scale} 1.4 1.6 0.8 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D01.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D01.png"
-wolframscript -file EP3D0.wl 4*${scale} 4*${scale} 1.1 1.2 0.5 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D01.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D01.png"
-wolframscript -file EP2D0.wl ${scale} ${scale} 1.1 1.7 1 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D02.png" >> log.txt
+wolframscript -file EP3D0.wl ${scale} ${scale} 1.4 1.6 0.8 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D01.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D01.png"
+wolframscript -file EP2D0.wl ${scale} ${scale} 1.4 2 1.2 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D02.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D02.png"
-wolframscript -file EP3D0.wl 4*${scale} 4*${scale} 1.1 1.7 1 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D02.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D02.png"
+wolframscript -file EP3D0.wl ${scale} ${scale} 1.4 2 1.2 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D02.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D02.png"
 
-wolframscript -file EP2D1.wl ${scale} ${scale} 1.2 1 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D10.png" >> log.txt
+wolframscript -file EP2D1.wl ${scale} ${scale} 1.4 0.8 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D10.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D10.png"
-wolframscript -file EP3D1.wl 4*${scale} 4*${scale} 1.2 1 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D10.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D10.png"
-wolframscript -file EP2D1.wl ${scale} ${scale} 1.2 0.5 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D11.png" >> log.txt
+wolframscript -file EP3D1.wl ${scale} ${scale} 1.4 0.8 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D10.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D10.png"
+wolframscript -file EP2D1.wl ${scale} ${scale} 1.4 1.2 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D11.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D11.png"
-wolframscript -file EP3D1.wl 4*${scale} 4*${scale} 1.2 0.5 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D11.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D11.png"
+wolframscript -file EP3D1.wl ${scale} ${scale} 1.4 1.2 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D11.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D11.png"
 
-wolframscript -file EP2D2.wl ${scale} ${scale} 2.5 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D20.png" >> log.txt
+wolframscript -file EP2D2.wl ${scale} ${scale} 2.5 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D20.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D20.png"
-wolframscript -file EP3D2.wl ${scale} ${scale} 2.5 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D20.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D20.png"
+wolframscript -file EP3D2.wl ${scale} ${scale} 2.5 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D20.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D20.png"
 
-wolframscript -file EP2D3.wl ${scale} ${scale} 1.1 0.05 0.05 \"${Sumpic}\" "${path2D}/EP2D30.png" >> log.txt
+wolframscript -file EP2D3.wl ${scale} ${scale} 1.4 0.2 0.2 \"${Sumpic}\" "${path2D}/EP2D30.png" >> log.txt
 echo "${Sumpic} ${path2D}/EP2D30.png"
-wolframscript -file EP3D3.wl ${scale} ${scale} 1.1 0.05 0.05 \"${Sumpic}\" "${path3D}/EP3D30.png" >> log.txt
-echo "${Sumpic} ${path2D}/EP3D30.png"
+wolframscript -file EP3D3.wl ${scale} ${scale} 1.4 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D30.png" >> log.txt
+echo "${Sumpic} ${path3D}/EP3D30.png"

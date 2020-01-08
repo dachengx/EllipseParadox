@@ -4,7 +4,7 @@ n2=ToExpression[$ScriptCommandLine[[3]]];
 x3=ToExpression[$ScriptCommandLine[[4]]];
 x4=ToExpression[$ScriptCommandLine[[5]]];
 x5=ToExpression[$ScriptCommandLine[[6]]];
-Sumpic=ToExpression[$ScriptCommandLine[[7]]];
+Sumpic=ToExpression[ToExpression[$ScriptCommandLine[[7]]]];
 figpath=$ScriptCommandLine[[8]];
 Print[$ScriptCommandLine];
 f2:=(x-1)^2/r^2+y^2/r^2;
