@@ -1,9 +1,11 @@
 digraph EPflow {
-    rankdir=UD
+    rankdir=LR
     geo[label="建立容器几何", shape=box];
     ran[label="生成随机数", shape=box];
-    star[label]
+    star[label="初始化模拟", shape=box];
     prop[label="建立光线传播",shape=box];
     judg[label="判断光线击中", shape=box];
-    geo->ran->prop->judg;
+    geo->ran->star->prop->judg;
+    judg->prop[label="击中物体", style="dashed"];
+    judg->star[label="击中容器壁", style="dashed"];
 }
