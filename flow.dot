@@ -1,0 +1,9 @@
+digraph EPflow {
+    rankdir=UD
+    geo[label="建立容器几何", shape=box];
+    ran[label="生成随机数", shape=box];
+    star[label]
+    prop[label="建立光线传播",shape=box];
+    judg[label="判断光线击中", shape=box];
+    geo->ran->prop->judg;
+}
