@@ -1,7 +1,7 @@
 #!/bin/bash
-scale=20
-Sumpic=-1
-amp=25
+scale=5
+Sumpic=25
+amp=1
 pathpic='pic'
 path2D="${pathpic}/2D"
 path3D="${pathpic}/3D"
@@ -48,3 +48,8 @@ wolframscript -file EP2D3.wl ${scale} ${scale} 1.4 0.2 0.2 \"${Sumpic}\" "${path
 echo "${Sumpic} ${path2D}/EP2D30.png"
 wolframscript -file EP3D3.wl ${scale} ${scale} 1.4 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D30.png" >> log.txt
 echo "${Sumpic} ${path3D}/EP3D30.png"
+
+wolframscript -file d2Dsphere.wl ${scale} ${scale} 1.6 0.6 1.5 0.5 \"${Sumpic}\" "${path2D}/d2Dsph.png" >> log.txt
+echo "${Sumpic} ${path2D}/d2Dsph.png"
+wolframscript -file d3Dsphere.wl ${scale} ${scale} 1.6 0.6 1.5 0.5 \"${Sumpic}\" "${path3D}/d3Dsph.png" >> log.txt
+echo "${Sumpic} ${path3D}/d3Dsph.png"
