@@ -10,7 +10,7 @@ eli1=f1/.a->x1;
 eli2=f1/.a->x2;
 circ=f2/.r->x3;
 u=Max[x1,x2,x3];
-demoraw=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,eli2==1,circ==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];
+demoraw=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,eli2==1,circ==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic,WorkingPrecision->20];
 Export["demoraw.png",demoraw];
 A1=NSolve[eli1==1&&circ==1&&y>0,{x,y},Reals];
 xa=x/.A1[[1]];
@@ -30,7 +30,7 @@ f4:=(x-1)^2/r^2+(y^2+z^2)/r^2;
 eli1=f3/.a->x1;
 eli2=f3/.a->x2;
 circ=f4/.r->x3;
-demo3Dfig=Show[ListPointPlot3D[{{-1,0,0},{1,0,0}}],ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],PlotRange->All,BoxRatios ->Automatic];
+demo3Dfig=Show[ListPointPlot3D[{{-1,0,0},{1,0,0}}],ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,WorkingPrecision->100],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,WorkingPrecision->100],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,WorkingPrecision->100],PlotRange->All,BoxRatios ->Automatic];
 Export["demo3D.png",demo3Dfig];
 
 SeedRandom[0];

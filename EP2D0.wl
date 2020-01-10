@@ -20,12 +20,12 @@ circ=f2/.r->x3;
 c1=f3/.r->x4;
 c2=f2/.r->x5;
 u=Max[x1,x2,x3];
-If[Sumpic>=0,rawfig=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,eli2==1,circ==1,c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];Export[StringTake[figpath,StringLength[figpath]-4]<>"raw.png",rawfig]];
+If[Sumpic>=0,rawfig=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,eli2==1,circ==1,c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic,PlotPoints->100];Export[StringTake[figpath,StringLength[figpath]-4]<>"raw.png",rawfig]];
 A1=NSolve[eli1==1&&circ==1&&y>0,{x,y},Reals];
 xa=x/.A1[[1]];
 A2=NSolve[eli2==1&&circ==1&&y>0,{x,y},Reals];
 xb=x/.A2[[1]];
-If[Sumpic>=0,geofig=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];Export[StringTake[figpath,StringLength[figpath]-4]<>"geo.png",geofig]];
+If[Sumpic>=0,geofig=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];Export[StringTake[figpath,StringLength[figpath]-4]<>"geo.png",geofig]];
 Print["Paradox L to R rate is ",1];
 SeedRandom[0];
 d0=RandomVariate[MatrixPropertyDistribution[r.{0,1},r \[Distributed] CircularRealMatrixDistribution[2]],n1];
@@ -61,7 +61,7 @@ If[flag==1,p=pt/.t->s;AppendTo[P,p];eN=N1[p,x1];dir=Normalize[dir-2*(dir.eN)*eN]
 If[flag==2,p=pt/.t->s;AppendTo[P,p];eN=N1[p,x2];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
-If[picNum1<=Sumpic,pict=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
+If[picNum1<=Sumpic,pict=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
 ]]
 Print["Simulation L to R rate ",Num1,"/",n1*n2,"=",N[Num1/(n1*n2)]];
 
@@ -98,6 +98,6 @@ If[flag==1,p=pt/.t->s;AppendTo[P,p];eN=N1[p,x1];dir=Normalize[dir-2*(dir.eN)*eN]
 If[flag==2,p=pt/.t->s;AppendTo[P,p];eN=N1[p,x2];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
-If[picNum2<=Sumpic,pict=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum2<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"R0"<>ToString[picNum2++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"R"<>ToString[picNum2++]<>".png",pict]]];
+If[picNum2<=Sumpic,pict=Show[ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ListLinePlot[P,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic];If[picNum2<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"R0"<>ToString[picNum2++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"R"<>ToString[picNum2++]<>".png",pict]]];
 ]]
 Print["Simulation R to L rate ",Num2,"/",n1*n2,"=",N[Num2/(n1*n2)]];
