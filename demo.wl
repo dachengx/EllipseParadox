@@ -10,7 +10,7 @@ eli1=f1/.a->x1;
 eli2=f1/.a->x2;
 circ=f2/.r->x3;
 u=Max[x1,x2,x3];
-demoraw=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,eli2==1,circ==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic,WorkingPrecision->20];
+demoraw=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1,eli2==1,circ==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],PlotRange->All,GridLines->Automatic,AspectRatio->Automatic,WorkingPrecision->20];
 Export["demoraw.png",demoraw];
 A1=NSolve[eli1==1&&circ==1&&y>0,{x,y},Reals];
 xa=x/.A1[[1]];
@@ -22,7 +22,7 @@ A4=NSolve[circ==1&&x==(xa+xb)/2&&y<0,{x,y},Reals];
 P2={{1,0},{x,y}/.A4[[1]],{1,0}};
 A5=NSolve[eli2==1&&x==(x2+xb)/2&&y>0,{x,y},Reals];
 P3={{-1,0},{x,y}/.A5[[1]],{1,0}};
-demo2Dfig=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]}],ListLinePlot[P1,PlotStyle->{RGBColor[1,0,0]}],ListLinePlot[P2,PlotStyle->{RGBColor[1,0,0]}],ListLinePlot[P3,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];
+demo2Dfig=Show[ListPlot[{{-1,0},{1,0}}],ContourPlot[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ContourPlot[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},PlotPoints->100],ListLinePlot[P1,PlotStyle->{RGBColor[1,0,0]}],ListLinePlot[P2,PlotStyle->{RGBColor[1,0,0]}],ListLinePlot[P3,PlotStyle->{RGBColor[1,0,0]}],PlotRange->All,GridLines->Automatic,AspectRatio ->Automatic];
 Export["demo2D.png",demo2Dfig];
 
 f3:=x^2/a^2+(y^2+z^2)/(a^2-1);
@@ -30,7 +30,7 @@ f4:=(x-1)^2/r^2+(y^2+z^2)/r^2;
 eli1=f3/.a->x1;
 eli2=f3/.a->x2;
 circ=f4/.r->x3;
-demo3Dfig=Show[ListPointPlot3D[{{-1,0,0},{1,0,0}}],ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,WorkingPrecision->100],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,WorkingPrecision->100],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,WorkingPrecision->100],PlotRange->All,BoxRatios ->Automatic];
+demo3Dfig=Show[ListPointPlot3D[{{-1,0,0},{1,0,0}}],ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],PlotRange->All,BoxRatios ->Automatic];
 Export["demo3D.png",demo3Dfig];
 
 SeedRandom[0];
@@ -99,7 +99,7 @@ If[flag==1,p=pt/.t->s;AppendTo[P,p];AppendTo[p0,p];eN=N1[p,x1];AppendTo[p0,p+eN]
 If[flag==2,p=pt/.t->s;AppendTo[P,p];AppendTo[p0,p];eN=N1[p,x2];AppendTo[p0,p+eN];AppendTo[p0,p];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];AppendTo[p0,p];eN=N2[p,x3];AppendTo[p0,p+eN];AppendTo[p0,p];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]]
-demogeoN=Show[ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None],Graphics3D[{Red,Thick,Line[p0]}],Graphics3D[{Blue,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];
+demogeoN=Show[ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{circ==1},{x,xa,xb},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{eli2==1},{x,xb,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{c1==1,c2==1},{x,-u,u},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,-Sqrt[u^2-1],Sqrt[u^2-1]},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None,PlotPoints->100],Graphics3D[{Red,Thick,Line[p0]}],Graphics3D[{Blue,Thick,Line[P]}],PlotRange->All,BoxRatios->Automatic];
 Export["demogeoN.png",demogeoN];
 demonogeoN=Show[Graphics3D[{Red,Thick,Line[p0]}],Graphics3D[{Blue,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];
 Export["demonogeoN.png",demonogeoN];

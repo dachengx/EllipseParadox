@@ -46,7 +46,7 @@ If[flag==0,p=pt/.t->s;AppendTo[P,p];Break[];];
 If[flag==4,p=pt/.t->s;AppendTo[P,p];Num1++;Break[];];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
-If[picNum1<=Sumpic,pict=Show[ContourPlot3D[{circ==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
+If[picNum1<=Sumpic,pict=Show[ContourPlot3D[{circ==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None,PlotPoints->100],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios->Automatic];If[picNum1<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"L0"<>ToString[picNum1++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"L"<>ToString[picNum1++]<>".png",pict]]];
 ]]
 Print["Simulation L to R rate ",Num1,"/",n1*n2,"=",N[Num1/(n1*n2)]];
 
@@ -80,6 +80,6 @@ If[flag==0,p=pt/.t->s;AppendTo[P,p];Num2++;Break[];];
 If[flag==4,p=pt/.t->s;AppendTo[P,p];Break[];];
 If[flag==3,p=pt/.t->s;AppendTo[P,p];eN=N2[p,x3];dir=Normalize[dir-2*(dir.eN)*eN];pt=P[[-1]]+t*dir;];
 ]
-If[picNum2<=Sumpic,pict=Show[ContourPlot3D[{circ==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},BoundaryStyle->None,ContourStyle->None],ContourPlot3D[{c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];If[picNum2<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"R0"<>ToString[picNum2++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"R"<>ToString[picNum2++]<>".png",pict]]];
+If[picNum2<=Sumpic,pict=Show[ContourPlot3D[{circ==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},BoundaryStyle->None,ContourStyle->None,PlotPoints->100],ContourPlot3D[{c1==1,c2==1},{x,-x3+1,x3+1},{y,-x3,x3},{z,-x3,x3},ColorFunction->"DarkRainbow",BoundaryStyle->None,Mesh->None,PlotPoints->100],Graphics3D[{Red,Thick,Line[P]}],PlotRange->All,BoxRatios->Automatic];If[picNum2<10,Export[StringTake[figpath,StringLength[figpath]-4]<>"R0"<>ToString[picNum2++]<>".png",pict],Export[StringTake[figpath,StringLength[figpath]-4]<>"R"<>ToString[picNum2++]<>".png",pict]]];
 ]]
 Print["Simulation R to L rate ",Num2,"/",n1*n2,"=",N[Num2/(n1*n2)]];
