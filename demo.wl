@@ -60,7 +60,6 @@ A1=NSolve[eli1==1&&circ==1&&z==0,{x,y,z},Reals];
 xa=x/.A1[[1]];
 A2=NSolve[eli2==1&&circ==1&&z==0,{x,y,z},Reals];
 xb=x/.A2[[1]];
-Print["Paradox L to R rate is ",1];
 SeedRandom[0];
 P={};
 While[Length[P]<=15,
@@ -103,3 +102,8 @@ demogeoN=Show[ContourPlot3D[{eli1==1},{x,-u,xa},{y,-Sqrt[u^2-1],Sqrt[u^2-1]},{z,
 Export["demogeoN.png",demogeoN];
 demonogeoN=Show[Graphics3D[{Red,Thick,Line[p0]}],Graphics3D[{Blue,Thick,Line[P]}],PlotRange->All,BoxRatios ->Automatic];
 Export["demonogeoN.png",demonogeoN];
+
+rate2D=BarChart[{{284/400, 293/400}, {256/400, 268/400}, {221/400, 218/400},{149/400,155/400},{119/400,124/400},{18/400,17/400},{307/400,301/400},{613*3/10000,2419/10000},{2293*3/40000,6079/40000}},ChartLabels -> {{"A", "B", "C","D","E","F","G","H","I"},None},ChartLegends->{Interpreter["TeXExpression"]["k_{1}\\cdot S_{1}"],Interpreter["TeXExpression"]["k_{2}\\cdot S_{2}"]}];
+Export["rate2D.png",rate2D];
+rate3D=BarChart[{{8127/10000, 7759/10000}, {7391/10000, 6433/10000}, {5708/10000, 4301/10000},{4640/10000,3537/10000},{3566/10000,1994/10000},{1/400,0/400},{359/400,327/400},{147*9/10000,1157/10000},{249*9/40000,2711/40000}},ChartLabels -> {{"A", "B", "C","D","E","F","G","H","I"},None},ChartLegends->{Interpreter["TeXExpression"]["k_{1}\\cdot S_{1}"],Interpreter["TeXExpression"]["k_{2}\\cdot S_{2}"]}];
+Export["rate3D.png",rate3D];

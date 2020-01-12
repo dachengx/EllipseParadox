@@ -49,7 +49,11 @@ echo "${Sumpic} ${path2D}/EP2D30.png"
 wolframscript -file EP3D3.wl ${scale} ${scale} 1.4 0.2 0.2 \"${Sumpic}\" "${path3D}/EP3D30.png" >> log.txt
 echo "${Sumpic} ${path3D}/EP3D30.png"
 
-wolframscript -file d2Dsphere.wl ${scale} ${scale} 1.6 0.6 1.5 0.5 \"${Sumpic}\" "${path2D}/d2Dsph.png" >> log.txt
-echo "${Sumpic} ${path2D}/d2Dsph.png"
-wolframscript -file d3Dsphere.wl ${scale} ${scale} 1.6 0.6 1.5 0.5 \"${Sumpic}\" "${path3D}/d3Dsph.png" >> log.txt
-echo "${Sumpic} ${path3D}/d3Dsph.png"
+wolframscript -file d2Dsphere.wl ${scale} ${scale} 1.6 0.6 1.5 0.5 \"${Sumpic}\" "${path2D}/d2Dsph0.png" >> log.txt
+echo "${Sumpic} ${path2D}/d2Dsph0.png"
+wolframscript -file d3Dsphere.wl ${scale} ${scale} 1.6 0.6 1.5 0.5 \"${Sumpic}\" "${path3D}/d3Dsph0.png" >> log.txt
+echo "${Sumpic} ${path3D}/d3Dsph0.png"
+wolframscript -file d2Dsphere.wl ${scale} ${scale} 1.55 0.55 1.5 0.5 \"${Sumpic}\" "${path2D}/d2Dsph1.png" >> log.txt
+echo "${Sumpic} ${path2D}/d2Dsph1.png"
+wolframscript -file d3Dsphere.wl ${scale} ${scale} 1.55 0.55 1.5 0.5 \"${Sumpic}\" "${path3D}/d3Dsph1.png" >> log.txt
+echo "${Sumpic} ${path3D}/d3Dsph1.png"
